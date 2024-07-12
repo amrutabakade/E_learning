@@ -1,0 +1,24 @@
+import React from 'react'
+import "./courses.css"
+import { CourseData } from '../../context/CourseContext'
+import CourseCard from '../../components/coursecard/CourseCard'
+const Courses = () => {
+    const {courses} = CourseData()
+    
+  return (
+    <div>
+      <div className="courses">
+        <h2>Available Courses</h2>
+
+        <div className="course-container">
+          {
+            courses && courses.length >0 ?courses.map((e)=>
+            (<CourseCard key={e._id} course={e}/>)) : (<p>no courses yet</p>)
+          }
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Courses
